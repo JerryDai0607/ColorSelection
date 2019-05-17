@@ -2,8 +2,13 @@
 var SDK = {
 
     isAndroid : function(){
-        cc.log("isAndroid:"+cc.sys.os);
-        return cc.sys.os === cc.sys.OS_ANDROID;
+        cc.log("isAndroid:"+cc.sys.isNative);
+        if(cc.sys.isNative){
+            return cc.sys.os === cc.sys.OS_ANDROID;
+        }else{
+            return false;
+        }
+        
     },
 
     callIOS : function(classname,funcname,param = ""){
