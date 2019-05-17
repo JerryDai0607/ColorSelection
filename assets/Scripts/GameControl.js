@@ -1,6 +1,7 @@
 
 
 var method = require('Method');
+var sdk = require("SDK");
 
 cc.Class({
     extends: cc.Component,
@@ -56,11 +57,12 @@ cc.Class({
         _current_color: cc.String,//当前字体的颜色
         _game_end: cc.Boolean,
         _game_end_current: cc.Boolean,//控制当前一局
+        _playe_tag : cc.Boolean
 
     },
 
     onLoad: function () {
-
+        this._playe_tag = false;
     },
 
     gameStart: function () {
@@ -130,6 +132,7 @@ cc.Class({
     },
 
     btnClickCallBack: function (event) {
+        this.playBtn();
         if (this._game_end_current == true) {//如果当前这句结束了
             return;
         }
@@ -180,6 +183,7 @@ cc.Class({
 
     gameEnd: function () {
         if (this._game_end == false) {
+            sdk.sendCaculationMsg();
             this._game_end = true;
             this.gScoreLabel.string = "总共答对" + this._current_score + "道题";
             let iword = this.getDesWord(this._current_score);
@@ -199,6 +203,13 @@ cc.Class({
             var sp = method.getItemsFromArr(GG.DES_LEVEL3, 1);
         }
         return sp;
+    },
+
+    playBtn : function(){
+        if(this._playe_tag ==false ){
+            this._playe_tag = true;
+            sdk.sendCaculationMsg();
+        }
     },
 
 

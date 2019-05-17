@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.22973967099940676,
-      "y": 0.22973967099940676,
+      "x": 0.1,
+      "y": 0.1,
       "z": 1
     },
     "_quat": {
@@ -2847,6 +2847,7 @@
     "_current_color": "String",
     "_game_end": "Boolean",
     "_game_end_current": "Boolean",
+    "_playe_tag": "Boolean",
     "_id": "aetUburLxPMp61ee4PI3LP"
   },
   {
