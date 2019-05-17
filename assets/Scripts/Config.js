@@ -1,6 +1,6 @@
 window.GG = {};
 
-GG.DEFAULT_GAMETIME = 30;//默认游戏时长
+GG.DEFAULT_GAMETIME = 20;//默认游戏时长
 GG.DEFAULT_GAMESCORE =20;//题目数
 GG.COLOR_ARR = ["红","黄","蓝","黑","绿"];
 GG.COLOR_NUM = {

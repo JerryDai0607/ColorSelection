@@ -57,7 +57,8 @@ cc.Class({
         _current_color: cc.String,//当前字体的颜色
         _game_end: cc.Boolean,
         _game_end_current: cc.Boolean,//控制当前一局
-        _playe_tag : cc.Boolean
+        _playe_tag : cc.Boolean,
+        _finish_click : cc.Boolean,
 
     },
 
@@ -74,6 +75,7 @@ cc.Class({
     },
 
     initData: function () {
+        this._finish_click = false;
         this._current_score = 0;
         this._current_time = GG.DEFAULT_GAMETIME;
         this._current_color = "";
@@ -117,6 +119,7 @@ cc.Class({
         this.setCenterWord();
         this.setBtns(t_arr);
         this._game_end_current = false;//题目都设置好后就可以开始当前局了
+        this._finish_click = false;
     },
 
     setBtns: function (arr) {
@@ -132,6 +135,10 @@ cc.Class({
     },
 
     btnClickCallBack: function (event) {
+        if(this._finish_click == true){
+            return;
+        }
+        this._finish_click = true;
         this.playBtn();
         if (this._game_end_current == true) {//如果当前这句结束了
             return;

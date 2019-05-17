@@ -2848,6 +2848,7 @@
     "_game_end": "Boolean",
     "_game_end_current": "Boolean",
     "_playe_tag": "Boolean",
+    "_finish_click": "Boolean",
     "_id": "aetUburLxPMp61ee4PI3LP"
   },
   {
