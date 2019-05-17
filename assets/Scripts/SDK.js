@@ -26,7 +26,7 @@ var SDK = {
     },
 
     sendCaculationMsg : function(){
-        this.callIOS("clasename","funcname");//需要修改
+        this.callIOS("GUBrigde", "statisticalEvent");
     },
 
     
