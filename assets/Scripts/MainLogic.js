@@ -33,19 +33,28 @@ cc.Class({
         _show_tip_times: cc.Integer
     },
 
+
     start: function () {
         this._played_lobby_eft = 0;
         this._show_tip_times = 0;
-        this.playLobbyEft();
         sdk.sendCaculationMsg("into game");
+        this.lobbyNode.active = true;
+        this.tipNode.active = true;
+        this.playLobbyEft();
     },
-
 
     enterGame: function () {
         sdk.sendCaculationMsg("start game");
         this.lobbyNode.active = false;
         this.tipNode.active = false;
         this.gameNode.getComponent("GameControl").gameStart();
+    },
+
+    //充值成功后走这个进入游戏
+    enterGameWithLastScroe : function(){
+        this.lobbyNode.active = false;
+        this.tipNode.active = false;
+        this.gameNode.getComponent("GameControl").gameStartWithOutDelet();
     },
 
     enterTips: function () {
@@ -78,5 +87,17 @@ cc.Class({
         this.title0.runAction(act0);
         var act1 = cc.moveTo(0.5, cc.v2(34, 0)).easing(cc.easeIn(1));
         this.title1.runAction(cc.sequence(cc.delayTime(0.5), act1));
-    }
+    },
+
+    //这边调用充值
+    btnCharge : function(){
+        //this.enterGameWithLastScroe();
+    },
+
+    //这边调用分享接口
+    btnShare : function(){
+
+    },
+
+    
 });

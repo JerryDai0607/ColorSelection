@@ -74,14 +74,24 @@ cc.Class({
         this.schedule(this.timeRecount, 1);
     },
 
-    initData: function () {
+    gameStartWithOutDelet: function () {
+        this.initData(true);
+        this.setCurrentTime();
+        this.setCurrentScore();
+        this.createQuestion();
+        this.schedule(this.timeRecount, 1);
+    },
+
+    initData: function (tag) {
         this._finish_click = false;
-        this._current_score = 0;
         this._current_time = GG.DEFAULT_GAMETIME;
         this._current_color = "";
         this._game_end_current = false;
         this._game_end = false;
         this.gameEndLayer.active = false;
+        if(tag != true){
+            this._current_score = 0;
+        }
     },
 
     timeRecount: function () {
@@ -206,8 +216,10 @@ cc.Class({
             var sp = method.getItemsFromArr(GG.DES_LEVEL1, 1);
         } else if (score < 15) {
             var sp = method.getItemsFromArr(GG.DES_LEVEL2, 1);
-        } else {
+        } else if(score < 40){
             var sp = method.getItemsFromArr(GG.DES_LEVEL3, 1);
+        }else {
+            var sp = method.getItemsFromArr(GG.DES_LEVEL4, 1);
         }
         return sp;
     },
