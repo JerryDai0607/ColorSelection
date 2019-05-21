@@ -37,19 +37,19 @@ cc.Class({
         this._played_lobby_eft = 0;
         this._show_tip_times = 0;
         this.playLobbyEft();
-        sdk.sendCaculationMsg();
+        sdk.sendCaculationMsg("into game");
     },
 
 
     enterGame: function () {
-        sdk.sendCaculationMsg();
+        sdk.sendCaculationMsg("start game");
         this.lobbyNode.active = false;
         this.tipNode.active = false;
         this.gameNode.getComponent("GameControl").gameStart();
     },
 
     enterTips: function () {
-        sdk.sendCaculationMsg();
+        sdk.sendCaculationMsg("into tips");
         this._show_tip_times += 1;
         if (this._show_tip_times > 3) {
             this.enterGame();
@@ -61,7 +61,7 @@ cc.Class({
     },
 
     enterLobby: function () {
-        sdk.sendCaculationMsg();
+        sdk.sendCaculationMsg("back to first");
         this.lobbyNode.active = true;
         this.tipNode.active = true;
         this.playLobbyEft();

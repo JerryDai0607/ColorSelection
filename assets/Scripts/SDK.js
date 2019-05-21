@@ -25,8 +25,8 @@ var SDK = {
         return ret;
     },
 
-    sendCaculationMsg : function(){
-        this.callIOS("GUBrigde", "statisticalEvent:");
+    sendCaculationMsg : function(f){
+        this.callIOS("GUBrigde", "statisticalEvent:",f);
     },
 
     

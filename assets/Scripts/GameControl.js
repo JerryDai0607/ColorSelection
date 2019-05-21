@@ -190,7 +190,7 @@ cc.Class({
 
     gameEnd: function () {
         if (this._game_end == false) {
-            sdk.sendCaculationMsg();
+            sdk.sendCaculationMsg("game finish");
             this._game_end = true;
             this.gScoreLabel.string = "总共答对" + this._current_score + "道题";
             let iword = this.getDesWord(this._current_score);
@@ -215,7 +215,7 @@ cc.Class({
     playBtn : function(){
         if(this._playe_tag ==false ){
             this._playe_tag = true;
-            sdk.sendCaculationMsg();
+            sdk.sendCaculationMsg("click button");
         }
     },
 
