@@ -33,6 +33,14 @@ cc.Class({
         _show_tip_times: cc.Integer
     },
 
+    onEnable : function(){
+        cc.systemEvent.on(GG.EVENT.CHARGE_OK, this.enterGameWithLastScroe, this);
+    },
+
+    onDisable : function(){
+        cc.systemEvent.off(GG.EVENT.CHARGE_OK, this.enterGameWithLastScroe, this);
+    },
+
 
     start: function () {
         this._played_lobby_eft = 0;
@@ -52,6 +60,7 @@ cc.Class({
 
     //充值成功后走这个进入游戏
     enterGameWithLastScroe : function(){
+        cc.log("金主大爷的回调");
         this.lobbyNode.active = false;
         this.tipNode.active = false;
         this.gameNode.getComponent("GameControl").gameStartWithOutDelet();
@@ -92,11 +101,12 @@ cc.Class({
     //这边调用充值
     btnCharge : function(){
         //this.enterGameWithLastScroe();
+        sdk.sendCaculationMsg("replay");
     },
 
     //这边调用分享接口
     btnShare : function(){
-
+        sdk.sendCaculationMsg("share");
     },
 
     
