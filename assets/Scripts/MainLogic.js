@@ -81,7 +81,7 @@ cc.Class({
     enterLobby: function () {
         sdk.sendCaculationMsg("back to first");
         this.lobbyNode.active = true;
-        this.tipNode.active = true;
+        this.tipNode.active = false;
         this.playLobbyEft();
     },
 
